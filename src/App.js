@@ -7,55 +7,54 @@ import {
 } from 'react-native';
 import ProEx from './PropEx';  
 import Ruang from './Ruang';  
-import AppStateles from './AppStatles';
+// import AppStateles from './AppStatles';
+import Counter from './Counter';
 // import component Prof Ex line 6 dan 19
 
 class App extends React.Component{
-    state = { tipe: 1 };
-    
+    state = { tipe:'ruang' };
+
     componentWillMount(){
       this.setState({
-        tipe:1
+        tipe:'ruang'
       })
     }
 
-    renderElement(){
-      console.log(this.state);
-      if (this.state.tipe === 1) {
+    renderElement(){ 
+      if (this.state.tipe === 'ruang') {
         //Return the FirstScreen as a child to set in Parent View
         return(
           <Ruang  ruang="Persegi" luas="sis X sisi" keliling="pxl" urlImage='https://facebook.github.io/react-native/img/tiny_logo.png' />   
         );
-      } else if (this.state.tipe === 2) {
+      } else if (this.state.tipe === 'orang') {
         //Return the SecondScreen as a child to set in Parent View
         return(
           <ProEx  nama="Gilang" alamat="bandung" telp="022" email="andi@yahoo.com" /> 
-        
         );
       }  
     }
 
     render(){
-        console.log('Hello Word')
+      // tempat untuk memasukan  kode javascript
         let type = this.state.tipe;
-       
         return(
-            <View> 
-              <Text>Value stateeTipe : {this.state.tipe}</Text>
+          // tempat untuk kode RECT-NATIVE jika ingin memanggil variable js harus menggunakan {}
+            <View>  
+              <Text>Value stateeTipe : {type}</Text>
               <TouchableOpacity
                   style={styles.button}
-                  onPress={() => this.setState({ tipe: 1 })}>
-                  <Text style={{ color: '#ffffff' }}>Data Ruang</Text>
+                  onPress={() => this.setState({ tipe: 'ruang' })}>
+                  <Text style={{ color: '#7FFF00' }}>Data Ruang</Text>
               </TouchableOpacity>
 
-            <TouchableOpacity
-              style={styles.button}
-              onPress={() => this.setState({ tipe: 2 })}>
-              <Text style={{ color: '#ffffff' }}>Data Orang</Text>
-            </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.button}
+                onPress={() => this.setState({ tipe: 'orang' })}>
+                <Text style={{ color: '#ffffff' }}>Data Orang</Text>
+              </TouchableOpacity>
           
 
-          <View style={{ backgroundColor: '#ffffff' }}>
+          <View style={{ backgroundColor: '	#00FFFF' }}>
           {this.renderElement()}
         </View>
 
