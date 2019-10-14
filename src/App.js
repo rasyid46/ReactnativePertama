@@ -7,51 +7,52 @@ import {
 } from 'react-native';
 import ProEx from './PropEx';  
 import Ruang from './Ruang';  
+import AppStateles from './AppStatles';
 // import component Prof Ex line 6 dan 19
 
 class App extends React.Component{
-  state = { tipe: 1 };
-
-  renderElement(){
-    console.log(this.state);
-    if (this.state.tipe === 1) {
-      //Return the FirstScreen as a child to set in Parent View
-      return(
-        <Ruang  ruang="Persegi" luas="sis X sisi" keliling="pxl" urlImage='https://facebook.github.io/react-native/img/tiny_logo.png' />   
-      );
-    } else if (this.state.tipe === 2) {
-      //Return the SecondScreen as a child to set in Parent View
-      return(
-        <Ruang  ruang="Jajar Genjang" luas="sis X sisi X tinngi" keliling="pxlXt" urlImage='https://laelitm.com/wp-content/uploads/2019/07/rumus-luas-jajar-genjang.jpg' />   
-      );
-    } 
-
-     
-    }
+    state = { tipe: 1 };
+    
     componentWillMount(){
       this.setState({
-        tye:2
+        tipe:1
       })
     }
+
+    renderElement(){
+      console.log(this.state);
+      if (this.state.tipe === 1) {
+        //Return the FirstScreen as a child to set in Parent View
+        return(
+          <Ruang  ruang="Persegi" luas="sis X sisi" keliling="pxl" urlImage='https://facebook.github.io/react-native/img/tiny_logo.png' />   
+        );
+      } else if (this.state.tipe === 2) {
+        //Return the SecondScreen as a child to set in Parent View
+        return(
+          <ProEx  nama="Gilang" alamat="bandung" telp="022" email="andi@yahoo.com" /> 
+        
+        );
+      }  
+    }
+
     render(){
         console.log('Hello Word')
         let type = this.state.tipe;
        
         return(
             <View> 
-              <Text>{this.state.tipe}</Text>
-              <ProEx  nama="Gilang" alamat="bandung" telp="022" email="andi@yahoo.com" /> 
+              <Text>Value stateeTipe : {this.state.tipe}</Text>
               <TouchableOpacity
-            style={styles.button}
-            onPress={() => this.setState({ tipe: 1 })}>
-            <Text style={{ color: '#ffffff' }}>1st View</Text>
-          </TouchableOpacity>
+                  style={styles.button}
+                  onPress={() => this.setState({ tipe: 1 })}>
+                  <Text style={{ color: '#ffffff' }}>Data Ruang</Text>
+              </TouchableOpacity>
 
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => this.setState({ tipe: 2 })}>
-            <Text style={{ color: '#ffffff' }}>2st View</Text>
-          </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => this.setState({ tipe: 2 })}>
+              <Text style={{ color: '#ffffff' }}>Data Orang</Text>
+            </TouchableOpacity>
           
 
           <View style={{ backgroundColor: '#ffffff' }}>
@@ -65,24 +66,12 @@ class App extends React.Component{
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#ecf0f1',
-    padding: 8,
-    marginTop: 30,
-  },
-  paragraph: {
-    margin: 24,
-    fontSize: 18,
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
+  
   button: {
-    flex: 1,
     alignItems: 'center',
     backgroundColor: '#808080',
-    padding: 10,
-    margin: 2,
+    padding: 20,
+    margin: 4,
   },
 });
 
