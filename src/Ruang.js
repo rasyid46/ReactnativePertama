@@ -8,13 +8,17 @@ import {
 class Ruang extends React.Component{
     render(){
         return( 
+ 
             <View>
 
                 <Text> Nama  Ruang: {this.props.ruang}  </Text> 
                 <Text> Luas  : {this.props.luas} </Text> 
                 <Text> Keliling  : {this.props.keliling} </Text>
-                <Image style={{width: 50, height: 50}} source={{uri: 'https://facebook.github.io/react-native/img/tiny_logo.png'}}
-        />
+                <Image style={{width: 50, height: 50}} source={{uri: this.props.urlImage}} />
+                <Image
+                     style={{width: 50, height: 50}}
+                     source={ this.props.assetImage}
+                   />
             </View>
         );
     }
