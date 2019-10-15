@@ -9,8 +9,7 @@ import ProEx from './PropEx';
 import Ruang from './Ruang';  
 // import AppStateles from './AppStatles';
 import Counter from './Counter';
-// import component Prof Ex line 6 dan 19
-
+// import component Prof Ex line 6 dan 19 
 class App extends React.Component{
     state = { tipe:'ruang' };
 
@@ -38,8 +37,11 @@ class App extends React.Component{
       // tempat untuk memasukan  kode javascript
         let type = this.state.tipe;
         return(
+          
           // tempat untuk kode RECT-NATIVE jika ingin memanggil variable js harus menggunakan {}
             <View>  
+
+              
               <Text>Value stateeTipe : {type}</Text>
               <TouchableOpacity
                   style={styles.button}
